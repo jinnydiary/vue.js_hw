@@ -1,0 +1,60 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div { padding: 30px; margin: 30px auto; max-width: 400px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+        table {border-collapse: collapse; margin: 40px auto;}
+        td {width: 50px; height: 50px; border: 1px solid gray; font-size: 20pt; 
+      text-align: center; cursor: pointer;}
+        td.css {background-color: #ffa;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="(m, index1) in matrix" v-bind:key="index1">
+                <td v-for="(value, index2) in m" v-bind:key="index2"
+                 v-on:click="onClick(index1, index2)"
+                 v-bind:class="status[value-1]">
+                    {{ value }}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            size: 3,
+            matrix: [],
+            status: []
+        },
+        created: function() {
+            let num = 1;
+            for(let i=0; i<this.size; ++i) {
+                this.matrix[i] = [];
+                for(let j=0; j<this.size; ++j) {
+                    this.matrix[i][j] = num++;
+                }
+            }
+
+            for(let s=0; s<this.size*this.size; ++s) {
+                this.status[s] = "";
+            }
+        },
+
+        methods: {
+            onClick: function(r, c) {
+                let v = this.matrix[r][c];
+                Vue.set(this.status, v-1, "css");
+            }
+        }
+
+    })
+
+    </script>
+</body>
+</html>

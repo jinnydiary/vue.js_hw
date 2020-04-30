@@ -1,0 +1,32 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table {border-collapse: collapse; margin: 30px auto; width: 800px;}
+        td {border: 1px solid black; text-align: center; padding: 2px 4px;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="m in num2" v-bind:key="m">
+                <td v-for="n in num1" v-bind:key="n">
+                    {{n}} * {{m}} = {{n * m}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            num1: [2, 3, 4, 5, 6, 7, 8, 9],
+            num2: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        }
+
+    })
+    </script>
+</body>
+</html>
