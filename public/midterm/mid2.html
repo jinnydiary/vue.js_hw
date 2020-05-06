@@ -2,16 +2,19 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    div#app { padding: 20px; margin: 30px auto; max-width: 200px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    table {border-collapse: collapse; margin-top: 10px;}
+    td {border: 1px solid black; padding: 2px;}
+    </style>
 </head>
 <body>
     <div id="app">
         <input type="text" v-model="num">
         <table>
-            <tr v-for="n in num" >
-                <label v-for="s in size">
-                    <td>{{n}} x {{s}} = {{n * s}}</td>
-                </label>
-
+            <tr v-for="s in size" v-bind:key="s">
+                <td v-model="num">{{num}} x {{s}} = {{num * s}}</td>
             </tr>
         </table>
     </div>
@@ -22,12 +25,7 @@
             data: {
                 num: 2,
                 size: 9
-            },
-            created() {
-                for() {
-                    
-                }
-            }            
+            }           
         });
     </script>
 </body>
