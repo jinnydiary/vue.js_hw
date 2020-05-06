@@ -5,6 +5,22 @@
 </head>
 <body>
     <div id="app">
-        <input type="text">
+        <input type="text" v-model="num">
+        <table>
+            <tr>
+                <td v-for="n in num">
+                    
+                </td>
+            </tr>
+        </table>
     </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: ''
+            }            
+        });
+    </script>
 </body>
