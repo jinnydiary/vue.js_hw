@@ -4,5 +4,6 @@ for(let i=0; i<3; ++i) {
 }
 
 let a2 = Object.assign([ ], a1);
+a1[0][0] = 100;
 console.log(a1);
 console.log(a2);
