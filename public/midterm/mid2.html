@@ -7,10 +7,11 @@
     <div id="app">
         <input type="text" v-model="num">
         <table>
-            <tr>
-                <td v-for="n in num">
-                    
-                </td>
+            <tr v-for="n in num" >
+                <label v-for="s in size">
+                    <td>{{n}} x {{s}} = {{n * s}}</td>
+                </label>
+
             </tr>
         </table>
     </div>
@@ -19,7 +20,13 @@
         var app = new Vue({
             el: '#app',
             data: {
-                num: ''
+                num: 2,
+                size: 9
+            },
+            created() {
+                for() {
+                    
+                }
             }            
         });
     </script>

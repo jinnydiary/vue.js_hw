@@ -1,7 +1,8 @@
 
 function getExtension(fileName) {
-    let f = fileName.split(".");
-    return "."+f[1];
+    let index = fileName.indexOf(".");
+    let f = fileName.slice(index);
+    return f;
 }
 
 let a = [ "hello.html", "world.js", "readme.txt" ];
